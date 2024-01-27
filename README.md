@@ -1,14 +1,13 @@
-# Домашние задания РС
+# Distributed Systems course homework
 
-Чтобы сдать задание, нужно:
+1. original task without solutions: https://gitlab.com/NanoBjorn/distsys-homework/-/tree/main
+2. course page: http://wiki.cs.hse.ru/Distributed_Systems_2023
 
-1. [только в первый раз] Сделать **приватный** fork, выдать доступы преподавателям и ассистентам: @sol, @NanoBjorn, @murfel, @alexmir, @petuhovskiy, @SpeedOfMagic, @RedClusive, @alex.shitov1237, @KiK0S, @lodthe, @AlPerevyshin.
-2. [только в первый раз] Скачать его к себе с сабмодулями, то есть `git clone --recurse-submodules YOUR_REPOSITORY`
-3. [только в первый раз] Добавить оригинальный репозиторий как второй remote, чтобы скачивать из него обновления: `git remote add upstream git@gitlab.com:NanoBjorn/distsys-homework.git`
-4. Синхронизироваться с апстримом: `git fetch upstream && git checkout main && git merge upstream/main && git push`
-5. Создать ветку для своего задания `git checkout -b N-taskname`
-6. Написать код, протестировать локально по инструкции в задании
-7. Запушить ветку `git push -u origin HEAD`
-8. Открыть Merge Request в свою ветку `main`
-9. До дедлайна сдать ссылку на Merge Request в соответствующее задание в Canvas
-10. По завершению ревью нажать Merge
+Course description automatic translation:
+Introductory course on Distributed Systems (RS), dedicated to
+
+* to study the principles and technologies of building a PC, emerging typical tasks and ways to solve them,
+* to get acquainted with various types of PC and their features,
+* to gain practical skills in developing a PC.
+
+The course includes practical homework involving writing code (about 10 tasks in total with a period of 1-2 weeks). Also, during the course, small written papers will be regularly given out, where you will need to answer several questions on the topics of the classes.
