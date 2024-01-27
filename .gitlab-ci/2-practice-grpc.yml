@@ -1,0 +1,13 @@
+2-practice-grpc:
+  extends: .hw-test
+  image: docker:latest
+  stage: test
+  services:
+    - docker:dind
+  before_script:
+    - apk add --no-cache docker-compose
+  script:
+    - cd 2-practice-grpc
+    - docker-compose build server client1 client2 tests
+    - docker-compose up -d server client1 client2
+    - docker-compose run --rm tests

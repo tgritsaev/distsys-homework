@@ -1,0 +1,13 @@
+5-practice-messaging:
+  extends: .hw-test
+  image: docker:latest
+  stage: test
+  services:
+    - docker:dind
+  before_script:
+    - apk add --no-cache docker-compose
+  script:
+    - cd 5-practice-messaging
+    - docker-compose build
+    - docker-compose up -d --scale worker=2 rabbitmq web worker
+    - docker-compose run --rm pytest

@@ -1,0 +1,21 @@
+1-guarantees:
+  extends: .hw-dslib-test
+  image: docker:latest
+  variables:
+    TASK_IMAGE: $CI_REGISTRY_IMAGE/1-guarantees
+  services:
+    - docker:dind
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+  script:
+    - |
+      if [[ "$CI_COMMIT_BRANCH" == "$CI_DEFAULT_BRANCH" ]]; then
+        tag=""
+        echo "Running on default branch '$CI_DEFAULT_BRANCH': tag = 'latest'"
+      else
+        tag=":$CI_COMMIT_REF_SLUG"
+        echo "Running on branch '$CI_COMMIT_BRANCH': tag = $tag"
+      fi
+    - docker build --pull -t "$TASK_IMAGE${tag}" . -f 1-guarantees/Dockerfile
+    - docker push "$TASK_IMAGE${tag}"
+    - docker run --rm "$TASK_IMAGE${tag}"

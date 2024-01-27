@@ -1,0 +1,13 @@
+8-kv-replication:
+  extends: .hw-dslib-test
+  image: registry.gitlab.com/nanobjorn/distsys-homework:latest
+  stage: test
+  cache:
+    key: rust-cache
+    paths:
+      - /root/.cache/sccache
+      - 8-kv-replication/test/Cargo.lock
+      - 8-kv-replication/test/target
+  script:
+    - cd 8-kv-replication/test
+    - cargo run --frozen --release || cargo run --release

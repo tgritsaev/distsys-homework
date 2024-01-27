@@ -1,0 +1,13 @@
+9-kv-replication-v2:
+  extends: .hw-dslib-test
+  image: registry.gitlab.com/nanobjorn/distsys-homework:latest
+  stage: test
+  cache:
+    key: rust-cache
+    paths:
+      - /root/.cache/sccache
+      - 9-kv-replication-v2/test/Cargo.lock
+      - 9-kv-replication-v2/test/target
+  script:
+    - cd 9-kv-replication-v2/test
+    - cargo run --frozen --release || cargo run --release

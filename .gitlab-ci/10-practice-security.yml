@@ -1,0 +1,13 @@
+10-practice-security:
+  extends: .hw-test
+  image: docker:latest
+  stage: test
+  services:
+    - docker:dind
+  before_script:
+    - apk add --no-cache docker-compose
+  script:
+    - cd 10-practice-security
+    - docker-compose build
+    - docker-compose up -d auth kv
+    - docker-compose run tests

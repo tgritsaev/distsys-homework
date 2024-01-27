@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.tmp
+.idea
+autograder.zip
+
+# Rust
+debug/
+target/
+Cargo.lock
+**/*.rs.bk
+*.pdb
+**/solution
+**/solutions

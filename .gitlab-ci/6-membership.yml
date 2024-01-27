@@ -1,0 +1,13 @@
+6-membership:
+  extends: .hw-dslib-test
+  image: registry.gitlab.com/nanobjorn/distsys-homework:latest
+  stage: test
+  cache:
+    key: rust-cache
+    paths:
+      - /root/.cache/sccache
+      - 6-membership/test/Cargo.lock
+      - 6-membership/test/target
+  script:
+    - cd 6-membership/test
+    - cargo run --frozen --release -- -m 1000 || cargo run --release -- -m 1000

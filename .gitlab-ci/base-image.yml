@@ -1,0 +1,16 @@
+base-image:
+  stage: build
+  rules:
+    - if: '$CI_COMMIT_TAG'
+  image: docker:latest
+  variables:
+    BASE_IMAGE: $CI_REGISTRY_IMAGE
+  services:
+    - docker:dind
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+  script:
+    - docker build --pull -t "$BASE_IMAGE:latest" . -f base.dockerfile
+    - docker image tag "$BASE_IMAGE:latest" "$BASE_IMAGE:$CI_COMMIT_TAG"
+    - docker push "$BASE_IMAGE:latest"
+    - docker push "$BASE_IMAGE:$CI_COMMIT_TAG"

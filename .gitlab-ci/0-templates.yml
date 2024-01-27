@@ -1,0 +1,18 @@
+.hw-test:
+  stage: test
+
+  # The job will be executed if its definition or any files in HW dir are changed
+  rules:
+    - changes:
+        - $CI_JOB_NAME/**/*
+        - .gitlab-ci/$CI_JOB_NAME.yml
+
+.hw-dslib-test:
+  stage: test
+
+  # These jobs will also be executed on dslib updates
+  rules:
+    - changes:
+        - $CI_JOB_NAME/**/*
+        - .gitlab-ci/$CI_JOB_NAME.yml
+        - dslib/**/*

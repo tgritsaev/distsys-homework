@@ -1,0 +1,13 @@
+7-kv-sharding:
+  extends: .hw-dslib-test
+  image: registry.gitlab.com/nanobjorn/distsys-homework:latest
+  stage: test
+  cache:
+    key: rust-cache
+    paths:
+      - /root/.cache/sccache
+      - 7-kv-sharding/test/Cargo.lock
+      - 7-kv-sharding/test/target
+  script:
+    - cd 7-kv-sharding/test
+    - cargo run --frozen --release || cargo run --release
