@@ -3,7 +3,8 @@
 1. original course repository (tasks without solutions): https://gitlab.com/NanoBjorn/distsys-homework/-/tree/main
 2. course page: http://wiki.cs.hse.ru/Distributed_Systems_2023
 
-Course description automatic translation:
+Course description (automatic translation):
+
 Introductory course on Distributed Systems (RS), dedicated to
 
 * to study the principles and technologies of building a PC, emerging typical tasks and ways to solve them,
