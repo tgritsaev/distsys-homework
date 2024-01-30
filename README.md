@@ -1,4 +1,4 @@
-# Distributed Systems course homework
+# Distributed Systems course homeworks (2022-2023)
 
 1. original course repository (tasks without solutions): https://gitlab.com/NanoBjorn/distsys-homework/-/tree/main
 2. course page: http://wiki.cs.hse.ru/Distributed_Systems_2023
